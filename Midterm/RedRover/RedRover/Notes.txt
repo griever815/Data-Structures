@@ -1,0 +1,287 @@
+CS 235 Midterm
+Version 0.11
+Instructors: R. P. Burton, Kent Seamons
+October 26 – 30, 2015 (Monday - Friday)
+Due in the Lab on Friday no later than 8:00 p.m.
+Penalty for submitting the midterm late:
+20 points per day (including weekend days), advancing at 8:01 p.m. each day
+Open Book (142 course text and your CS 235 course text only), Open Notes (personal notes including your own Lab
+solutions)
+Open Secondary Storage Device: yours only
+Open Laptop: if you wish
+Open Course Website and the reference section of www.cplusplus.com, but no other Internet resources (no
+Google or StackOverflow)
+Closed Neighbor (and everyone is thy neighbor)
+
+*Instructions*
+(Please read carefully)
+1. This midterm consists of a C++ programming problem and an extra credit feature. Read and understand the
+statement of the problem completely before beginning to design, code, and test. As part of your design, consider the
+test cases that will establish the correctness of your solution. Test your solution thoroughly before submitting it.
+
+2. Produce a solution, which consists of your C++ code, with a comment at the beginning of each file (both .h and.cpp)
+which includes your name, and “CS 235 Fall 2015 Midterm.” When you are finished, go to the course website and
+follow the link labeled “Submit Exam” in the Exam Menu. Upload your completed project by compressing the files
+and submitting through Learning Suite with TA assistance. If a packet is not collected by a TA upon submission, you
+will not be graded and will therefore receive no credit for the exam. Attribute any code taken from or based on
+other sources (excluding the authorized sources). Attributed code copied from or based heavily on outside sources is
+worth half credit. Unattributed code copied from or based heavily on outside sources is worth no credit.
+
+3. Understanding the problem correctly is part of the examination. If something seems unclear, ask a CS 235 TA (but no
+one else) for clarification. You may pose questions to the CS 235 TAs at any time. However, the TAs, generally, are
+not permitted to answer questions related to design, C++ implementation, debugging, or testing.
+
+4. Prior to submitting your midterm, score it using the attached scoring sheet (this will help you maximize your points
+and will help us grade your exam accurately). If your score is within 5 points of the TA score, you get a 3 point bonus.
+If your score is within 6 to 15 points of the TA score, no bonus or penalty is imposed. If your score is more than 15
+points different from the TA score, you lose 3 points.
+
+5. Your solution packet must be stapled together before it will be accepted by a TA, even if this results in a late
+submission penalty.
+
+6. You are required to submit your lab packet to a TA at the time that you submit your code on LearningSuite. Because
+there will not be any TA available on Saturday and Sunday, you may submit your code on LearningSuite without TA
+help on Saturday and Sunday as long as you submit your lab packet to the TA office on the following Monday. Note
+that you will still receive the late penalty for submitting on Saturday or Sunday.
+
+7. Sign the grading sheet to request that your midterm be graded and to certify that no unfair information related to the
+midterm has been received by you, either directly or indirectly, and that none will be conveyed by you. If we discover
+that you cheated or assisted someone in cheating, intentionally or unintentionally (including accidentally), your score
+for this exam may (and probably will) be rand() % 1.
+We’re serious.
+
+
+
+Red Rover
+The purpose of this midterm is to simulate the game Red Rover, in part by implementing a
+double-linked list data structure. If a double-linked list is not used, you will be subject to a 50% penalty
+in any section of the lab where a non-double-linked list is used. Your linked list structure will consist of
+Player nodes. A Player node consists of a name, strength, speed, and pointers to the nodes on either
+side of the Player node. Do not use any predefined data structures in your program.
+Here is how our version of Red Rover is played:
+
+1. There are two teams consisting of the same number of Players, Team A and Team B. Each
+team forms a straight line, holding hands. The two teams face each other.
+
+2. Team A decides whom to “call over” from Team B.
+
+3. Once Team A has decided, they chant, “Red Rover, Red Rover, send (name) right over!”
+
+4. The player from Team B who was called must run toward Team A and try to break through
+the arms of two Team A players.
+
+5. If the player from Team B fails to break through, he becomes a member of Team A. But if he
+breaks through, he goes back to his original team, Team B, and takes a member of Team A with
+him. The player he takes back is the stronger of the Players whose connection he broke.
+
+6. Now it is Team B's turn to decide whom to “call over” from Team A.
+
+7. Play continues back and forth until one team only has one Player left. The game ends and the
+larger team wins.
+No test driver will be provided. Create your own double linked list class and Player class. You will
+also need to make a class that plays the game of RedRover, which will include the roster of available
+players and the lists of players on each team. The roster and the two teams must be implemented as
+double linked lists. As in other labs you will need to inherit from the Interface files provided (you may
+create your linked list class without inheriting from an interface file). You will not be given a test driver,
+so you should create a main.cpp and thoroughly test your program before submitting it. For each of the
+following functions you must carefully read both the function overview presented in this document and
+the specific function requirements as given in the Interface files. Each of these functions will be defined
+in your RedRover class.
+
+addToRoster(string)
+This function will accept a string containing the name, strength, and speed of each player who
+will be participating in the game. You may create your own string for testing purposes, but the TAs will
+use specific lists of players when grading your program. The string will contain a list of Players to be put
+on the roster. The format of the string will look something like this, with one token on each line:
+Kaylee
+25
+12
+Matt
+15
+20
+The first integer following a Player's name is that Player's strength. The second integer is that
+Player's speed. Using the information for each Player, create a new node and add it to the end of your
+roster. If there is a previously existing roster, add the new Players on to the end of the roster. You may
+assume that the string format will be correct. You may NOT assume that a string will contain an even
+number of players or that the string will not be empty. If an empty string is given, advise the user that
+no players have been added to the roster. You may allow multiple players with the same name to be
+placed in the roster.
+
+getRosterSize(), getTeamASize(), getTeamBSize()
+These functions return the number of players in the roster, in Team A, or in Team B.
+
+getRoster(), getTeamA(), getTeamB()
+These functions will return a string representation of all the names of the Players in the roster,
+in Team A, or in Team B. The name at index 0 will be printed first, followed by the names associated
+with the other indices in order. The name of each player should be separated by a single space and
+there should be no trailing space at the end of the returned string. For example, if Team A had three
+players named “Fred”, “Sam”, and “Carrot” the function getTeamA() would return:
+“Fred Sam Carrot”
+If the list is empty, the function should return the string “Roster empty”, “Team A empty”, or “Team B
+empty”, whichever is appropriate.
+
+rosterAt(int), teamAAt(int), teamBAt(int)
+Returns a pointer to the player located at the given index. If the index given is out of range,
+instead returns NULL.
+*Note: Your getSize() and At() functions will be used to determine the accuracy of your list. Make sure
+that all of these functions work properly or we will be unable to grade your project appropriately.
+
+shuffleRoster()
+This function will randomly shuffle the Players in your roster. Most students find it convenient
+to use the rand() function to implement their shuffle function. You will receive credit as long as the list is
+somewhat shuffled, but you will only receive half credit for simplistic shuffling like moving every Player
+down one, reversing the order of the list, etc. This function will not affect the order of players who are
+already in Team A or Team B.
+
+createTeams()
+This function will divide the Players in the roster into two teams. When adding to the teams, you
+must insert at the end of the team's list (i.e. with a new index that is greater than all the existing
+indices). Every other Player will be assigned to a different team. The first Player in the roster will be
+added to Team A, the second Player to Team B, etc. When a Player is added to a team, he is removed
+from the roster. If the roster has an odd number of Players, omit the last Player (the last Player will
+remain on the roster). If the roster has less than 4 Players, do not remove any players from the roster
+and alert the user that no players have been added to the teams.
+
+sendSomeoneOver(PlayerInterface*, PlayerInterface*)
+This function operates as follows:
+1. The first player (the runner) will be located in either Team A or Team B, and the second player (the
+defender) will be located in the other team.
+2. The runner will attempt to break through the link held by the defender and his successor. The link
+that the runner attempts to break will always be between the defender and the next player in the list
+unless the defender is the last player in the list, at which point the runner will attempt to break the link
+between the last two players. For example,
+Team A: Calvin, Matt, Jason, Yazan
+Runner: Matt
+Team B: Kaylee, Jacob, Trent, Trevor
+Defender: Trent
+In this example, Matt will attempt to break the link between Trent and Trevor. The link is broken if the
+sum of Matt’s strength and speed exceeds the sum of Trent and Trevor's strength. If the link is broken
+then Matt returns to his original index on his team. The stronger Player associated with the link that was
+broken becomes a part of Matt’s team and is inserted after Matt. If the link is not broken then Matt
+becomes part of Team B and is inserted after Trent, between Trent and Trevor.
+If the attack results in either team winning then a message should be displayed showing the
+members of the winning team and alerting the user that a team has won and the game is over. For
+example if the teams were as follows:
+Team A: Riku, Ansem
+Team B: Sora, Kairi, Namine, Olette
+If Olette is called over to Team A and breaks through the link then the stronger of the two
+players in Team A would be added to Team B. If Ansem had a higher strength than Riku the teams
+would look like this after the attack was over:
+Team A: Riku
+Team B: Sora, Kairi, Namine, Olette, Ansem
+The function should then display something like the following:
+“Team B wins! Sora, Kairi, Namine, Olette, Ansem.”
+
+teamReset(), rosterReset()
+teamReset() empties the players from both teams, but does nothing to the Roster. After
+teamReset() is called there should be no players remaining in either Team A or Team B. rosterReset()
+empties the Players from the roster but does nothing to the players in Team A or Team B.
+
+autoPlay() (extra credit)
+This function will simulate a game of Red Rover. Starting with Team A, your program randomly
+selects a player to try to break a randomly selected link of the other team. Between each turn, display
+the names of Players currently on Team A and Team B. The function continues to play the game until
+either Team A or Team B has exactly one player left. At the end of play, display the name and players of
+the winning team, and then empty both teams. If there are insufficient players in Team A or in Team B,
+alert the user by displaying a message. If you do not wish to implement this function, you should simply
+leave it empty (e.g. you could write “autoPlay() {};” ).
+
+UML Diagram
+You must also provide a UML diagram which should stapled to the submission packet (not
+submitted through LearningSuite) in order to receive full credit for the midterm. Your diagram should
+include every class that you use and should contain all the elements of a standard UML diagram (arrows
+indicating inheritance, data members and functions of each class, etc.)
+
+Valgrind
+To receive full credit, your program must pass valgrind. You may run this through the terminal
+on the Linux machines. You must first navigate to your project folder and find your project’s executable
+file. If you do not have an executable file, you can make one through the terminal command:
+g++ -o <name of executable file you want to create> *.h *.cpp
+i.e.
+g++ -o redRover *.h *.cpp
+This will create an executable file with the name you entered within your project code folder. Now to
+run valgrind, the command is:
+valgrind --tool=memcheck --leak-check=yes ./<name of executable>
+i.e.
+valgrind --tool=memcheck --leak-check=yes ./redRover
+If the result of running this command says:
+All heap blocks were freed -- no leaks are possible
+And there were no other valgrind-related errors (like invalid reads/writes, conditional jumps, etc.) then
+you passed valgrind :)
+If you have any questions about how to use the terminal to create an executable file and run valgrind,
+you may ask the TAs to demonstrate how to run a program through the terminal.
+
+Pass-Off
+The midterm is due on Friday, October 30 at 8:00PM. When you are finished with your solution
+and UML diagram, have filled out the grading sheet, and are ready to submit your midterm, go to the
+course website and follow the link labeled “Submit Exam” in the Exam menu. With a TA present,
+compress your files and submit the compressed folder to LearningSuite. The TA will then collect your
+packet and verify that you have signed the grading sheet.
+Due to the large number of students who may want to pass off on Friday evening, the TAs will
+be working with students on a first-come first-served basis on the final evening of pass-off. In order to
+be fair to students who have finished the lab and wish to submit, there will be a line outside of the TA
+office for students who are ready to submit their midterm. You must be in this line before 7:45 on
+Friday evening in order to submit your midterm on time. At 7:45 the line will be closed and students
+who are in the line will be helped. All further submissions will be counted as late. The TAs will make
+announcements in the computer labs at 7:35 and 7:40 so that students are not caught off guard by the
+deadline.
+
+
+Grading Sheet
+TA Initials____
+Days Late____
+
+Student: TA:
+Roster:
+__ / 10pts __ / 10pts 1. addToRoster(string) successfully creates the roster. Rejects any input that contains no players.
+
+__ / 5pts __ / 5pts 2. getRoster() successfully returns the contents of the roster and follows the required format.
+
+__ / 5pts __ / 5pts 3. rosterReset() successfully removes all players from the roster.
+
+__ / 10pts __ / 10pts 4. shuffleRoster() shuffles the order of Player objects in the roster.
+
+
+
+Teams:
+__ / 10pts __ / 10pts 1. createTeams() adds players from the roster to Team A and Team B as described above. The last Player in the roster is omitted if the number of Players is odd.
+
+__ / 5pts __ / 5pts 2. The Players added to the teams are removed from the roster.
+
+__ / 5pts __ / 5pts 3. getTeamA() and getTeamB() successfully return a string representation of the players currently on the team.
+
+__ / 5pts __ / 5pts 4. teamReset() removes all players from both teams.
+
+
+
+User Play:
+__ / 5pts __ / 5pts 1. sendSomeoneOver(PlayerInterface*, PlayerInterface*) successfully simulates the game of RedRover and does nothing if the given players 
+are on the same team or if one of the players is not found on either team. Does nothing if NULL is given as an input.
+
+__ / 10pts __ / 10pts 2. Correctly calculates when a link is to be broken.
+
+__ / 10pts __ / 10pts 3. Correctly removes and inserts from the two teams.
+
+
+
+
+Auto Play: (extra credit)
+__ / 5pts __ / 5pts 1. Teams are displayed after each attempt to break a connection.
+
+__ / 10pts __ / 10pts 2. Successfully creates a randomly generated game. Program does not crash.
+
+
+ 
+Other:
+__ / 10pts __ / 10pts 1. Your program passes valgrind with no memory leaks and does not crash.
+
+__ / 5pts __ / 5pts 2. UML diagram is neat, correctly formatted, and complete.
+
+__ / 5pts __ / 5pts 3. You have neat and consistent code with comments where appropriate.
+
+__ / Total __ / Subtotal
+__ / Late Penalty (20 points per day)
+__ / Accurate Grading Bonus (+3/0/-3)
+___ / Total
+_______________________________ _____________________________
+Student Signature TA Grader

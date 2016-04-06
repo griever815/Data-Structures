@@ -1,0 +1,49 @@
+Purpose
+To achieve a deeper understanding of Stacks, Queues, and Deques.
+
+Key Reading
+5.1-5.4 Stack
+6.1-6.3 Queue and Deque
+Background
+The Greater Provo Railroad Station has facilities for receiving railroad cars, sending cars, and storing cars. There are three storage facilities referred to by the station manager as "the stack," "the queue," and "the deque;" each has a maximum capacity of 5 cars. To distinguish one car from another the station manager requires each car to have a unique ID. Once the car is received, it becomes the "current" car. If there is already a current car, no new car can be accepted until the current car has been "stored" or sent away. The test driver can select a storage facility to add the car to (pushed, enqueued, inserted left, or inserted right depending on the facility) provided there is room in the indicated storage facility, or it can be sent away. After any such action is taken there is no current car. When there is no current car, a new car can be received (becoming the current car) or the test driver can select a facility and remove a car (popped, dequeued, removed left, or removed right depending on the facility) with that removed car becoming the current car, provided there is a car in the indicated storage facility.
+
+Requirements
+You will need these files (Lab_4_Station_11.zip  Download) to complete the assignment. Details for method constraints are found in these documents and are still a part of the requirements.
+
+Part 1 - The Station (7 points)
+Extend StationInterface.h and complete Part 1.
+These operations involve managing the station itself.
+(Parts 2-4 will require IDs to be unique)
+ 
+
+Part 2 - The Stack (7 points)
+Provide operations for inserting and removing cars from "the stack"
+Part 3 - The Queue (7 points)
+Provide operations for inserting and removing cars from "the queue"
+Part 4 - The Deque (7 points)
+Provide operations for inserting and removing cars from "the deque"
+Extra Credit - A Busy Station (5 points)
+Add two additional storage facilities called the input-restricted deque and the output-restricted deque, with facilities compatible with those described above.
+Complete all previous parts before earning Extra Credit.
+In order to complete the Extra Credit, you must use StationInterfaceExtra.h instead of StationInterface.h
+UML design document. (2 points)
+
+Refer to page 113 in the book for an example.
+Please bring when asking TAs questions.
+Requirement Notes
+Restrictions
+You may not use any predefined data structures from the STL (including Arrays)
+You are required to use separate classes (a unique '.cpp' and '.h') for each data structure
+You are required to use a linked structure to implement your storage facilities
+Additional Notes
+
+Train cars are represented only as integers.
+There is no need to write a class to represent a train car.
+Negative numbers are not considered valid numbers for train car IDs; it may be helpful to interpret -1 as meaning "no car" or "empty".
+A major objective of this lab is to give you practice with the principle of code reuse. YOU HAVE ALREADY WRITTEN A LINKED STRUCTURE; CONSIDER THE ADVANTAGES OF USING IT. 
+Your storage container classes should use the "has a" relationship with this linked structure, as opposed to the "is a" relationship.
+This diagram may be helpful:
+
+
+
+

@@ -1,0 +1,19 @@
+﻿Build started 11/16/2015 3:55:17 PM.
+Project "E:\BYU\2015-2016 Fall\CS 235\Midterm\RedRover\RedRover\RedRover.vcxproj" on node 2 (Build target(s)).
+ClCompile:
+  C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D _MBCS /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"Debug\\" /Fd"Debug\vc140.pdb" /Gd /TP /analyze- /errorReport:prompt RedRover.cpp
+  RedRover.cpp
+e:\byu\2015-2016 fall\cs 235\midterm\redrover\redrover\linkedlist.h(103): warning C4715: 'LinkedList<Player *>::findIndex': not all control paths return a value
+e:\byu\2015-2016 fall\cs 235\midterm\redrover\redrover\redrover.cpp(794): warning C4715: 'RedRover::choosePlayer': not all control paths return a value
+e:\byu\2015-2016 fall\cs 235\midterm\redrover\redrover\redrover.cpp(95): warning C4715: 'RedRover::addToRoster': not all control paths return a value
+Link:
+  C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"E:\BYU\2015-2016 Fall\CS 235\Midterm\RedRover\Debug\RedRover.exe" /INCREMENTAL /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /Debug /PDB:"E:\BYU\2015-2016 Fall\CS 235\Midterm\RedRover\Debug\RedRover.pdb" /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"E:\BYU\2015-2016 Fall\CS 235\Midterm\RedRover\Debug\RedRover.lib" /MACHINE:X86 Debug\Factory.obj
+  Debug\Main.obj
+  Debug\Player.obj
+  Debug\RedRover.obj
+  RedRover.vcxproj -> E:\BYU\2015-2016 Fall\CS 235\Midterm\RedRover\Debug\RedRover.exe
+Done Building Project "E:\BYU\2015-2016 Fall\CS 235\Midterm\RedRover\RedRover\RedRover.vcxproj" (Build target(s)).
+
+Build succeeded.
+
+Time Elapsed 00:00:11.07

@@ -1,0 +1,51 @@
+Purpose
+This lab assignment focuses on self-balancing binary search trees.
+
+Key Reading
+8.4
+10.10
+11.1-11.2
+Background
+In computer science, an AVL tree is a self-balancing binary search tree, and it was the first such data structure to be invented. In an AVL tree, the heights of the two subtrees of any node differ by at most one. Lookup, insertion, and deletion all take O(log n) time in both the average and worst cases, where n is the number of nodes in the tree prior to the operation. Insertions and deletions may require the tree to be rebalanced by one or more tree rotations.
+
+Requirements
+You will need these files to complete this assignment: AVLToStudents.zip  Download
+
+Part 1 - Creating a balanced tree
+Implement the interface creating an AVL tree. Remember to rebalance when the subtree heights are off by more than 1.
+Part 2 - Remove from the tree
+Properly remove from the AVL tree
+Maintain balance of the tree
+Be sure to follow the conventions outlined in the Requirement Notes to keep a "properly" constructed tree
+UML design document.
+
+Refer to page 113 in the book for an example.
+Please bring when passing off.
+Requirement Notes
+ 
+
+There are multiple correct methods for rebalancing nodes in an AVL tree; each method may result in a unique tree. Some conventions will need to be used to ensure that your tree properly matches ours. When rebalancing, refer to www.qmatica.com for more detailed information on proper balancing.
+You should remove nodes from the AVL tree in the same manner used for the BST.
+Remember to disallow duplicate entries and handle the case when the element to be removed is not in the tree
+You are required to write a separate '.h' and '.cpp' for every class you implement.
+You may NOT DISCUSS this "no help" lab assignments with ANYONE other than TAs. The TAs can help clarify requirements and review general data structure concepts. However, they will not give specific advice, nor write or debug any code.  You may use the resources specified for the midterm, but no other resources.
+ 
+
+Partial credit can be given as follows:
+     __ / 5pts    Add “5”. Remove “5”. Remove “0”.
+     __ / 5pts    Add 0 – 9, then add duplicates.
+     __ / 5pts    Remove 0 – 9, then remove 0 – 9 again.
+     __ / 8pts  Add 500 – 0 in increments of 15, then add several duplicates.
+     __ / 8pts  Remove 0 – 500 in increments of 5, then remove the same integers again.
+     __ / 5pts    Empty list.
+     Convergence test:
+     __ / 10pts    Add 0 – 50, 0 - -50. (1 of 4)
+     __ / 10pts    Remove 0 – 50, 0 - -50. (2 of 4)
+     __ / 10pts    Add 0 – 50, 0 - -50. (3 of 4)
+     __ / 10pts    Remove 50 – 0, -50 – 0. (4 of 4). 
+     __ / 9pts    Empty list.
+     __ / 10pts    Convergence test with varying increments.
+     __ / 5pts      UML Diagram
+     __ / 100pts  Total
+ 
+To receive partial credit, your code must pass the entirety of a given test(s). For example, to receive the first 5 points listed your code must pass all three tests listed for the 5 points to be awarded. If your code only passes two of the three tests, no points will be awarded. Similarly, on the remove 0-9 test, if your code successfully removes 0-3 but then breaks when removing 4, no points will be awarded for that test.

@@ -1,0 +1,118 @@
+Purpose
+To become familiar with the use of stacks as data structures.
+
+Key Reading
+5.1-5.4
+Background
+Develop an Expression Manager that performs several operations on infix and postfix expressions. Be able to convert from one form to the other, evaluate postfix expressions, and check for balanced parenthetical expressions.
+
+You may also refer to Edsger Dijkstra's "Shunting-yard algorithm" for additional help, which can be viewed here.
+
+Requirements
+Details for method constraints are found in these documents and are still a part of the requirements.
+
+You will need this files (Lab_3_Infix_11.zip  Download) to complete this assignment.
+Extend the ExpressionManagerInterface.h.
+
+ 
+
+Part 1 - Balanced Symbols Check (8 points)
+Determine whether an expression is balanced. { [ } ] is not balanced. [ ( ) ] is balanced and valid
+Part 2 - Infix to Postfix Conversion (10 points)
+Determine if the given infix expression is valid
+Convert the infix expression into a postfix expression
+Part 3 - Postfix to Infix Conversion (10 points)
+Determine if the given postfix expression is valid
+Convert the postfix expression into an infix expression
+Part 4 - Postfix Expression Evaluation (10 points)
+Determine if the given postfix expression is valid
+Evaluate the given postfix expression
+Handle attempts to divide by 0
+UML design document. (2 points)
+
+Refer to page 113 in the book for an example.
+Please bring when asking TAs questions.
+Requirement Notes
+General
+You are required to create a seperate '.cpp' and '.h' for each class you implement for this lab.
+Valid expressions consist of integers; brackets, braces, and parentheses; and +, -, *, /, and %. Reject any invalid expressions.
+Your calculations should perform integer divison and produce integer results
+Valid expressions also need to satisfy standard infix or postfix requirements
+{,},(,),[, and ] are the only symbols considered for the Balanced Symbols Check
+You can assume there will be a space between every number or operator
+You must put parenthesis '()' around every part of the expression during the postfix to infix conversion. i.e. "4 2 5 + *" = "( 4 * ( 2 + 5 ) )"
+You must use the stack class pre-defined in the C++ Standard Template Library (STL). i.e. #include <stack>
+
+
+Test Cases
+Here are some sample test cases you may use to test your program for pass off for each part. This is not a comprehensive set of tests, but it should familiarize you with the format and give you ideas for additional test cases you can use.
+
+make sure stack is not empty before calling pop or top
+
+
+
+
+balance throws a bunch of brackets at you, consume the right one and compare it to the left using a ss
+
+eval 
+
+post fix is taking reverse polish and making a real expression out of it
+
+infix - only put the operators on a stack. always push an open parenthesis .
+
+
+write alot of helper functions, ie precidence checker, is this a number, is this an operator, is this etc etc 
+
+
+bool stack.empty() // is boolean. If you call top or pop on an empty stack, segfault.
+top()  // looks at the top. 
+pop() // removes from the top
+push(x) // pushes the value to the top
+clear() //clears the whole stack
+
+PF, IF
+isBalanced
+PF -> IF
+IF -> PF
+StringStream Conversion
+
+isBalanced
+make a function that will return a value depending on what the bracket is.
+make a function to test if the pair matches.
+if everything matched up in order, and the stack is empty, everything matched up.
+
+IF -> PF
+(4+2) * 5 + 6 / (3-2)
+make a stack<string> that holds operators and parenthesis
+priority levels 
+([{ = 0
++- = 1
+*/% = 2
+)]} = 3
+if you are number, but it right onto a string that you are manipulating
+every time you get to another brace, pull off all operators until you get to the other brace.
+when you get to a point where the lower priority sits ontop of the higher, you then pull off the higher stuff and then put on the lower priority to the stack. it is okay to put a lower priority on the open braces.
+Once you get to the ned of the string, you pop everything off the stack and put it on the string.
+
+PF -> IF
+4 2 + 5 * 6 3 2 - / + 
+make a stack<string> 
+everytime you find a number, put it on the stack.
+when you find an operator, pull the top 2 off the stack and put the top on the right and the bottom on the left. Put parentesis around them with the operator in the middle. Now put that on the stack.
+at the very end, the only thing left back on the stack should be the final product.
+
+PF evaluate
+It basically does the exact same thing, but with a stack<ints> and this time you are adding on numbers.
+
+
+things that can break.
+You have to have enough numbers. you need 1 more number than operators.
+you have to start with 2 numbers or it breaks.
+
+You can have negative numbers. use a string stream. Negatives wont have a space, so it comes in as a whole number.
+ss << "-4" is a string.
+if you go ss >> int num, it still works!
+
+Division by 0. that is a segfault. You cannot allow division by 0. You cannot % by 0 either. 
+
+Everytime we see an operator, we evaluate the two numbers before that operator.
